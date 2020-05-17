@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="myViewModel"
+        type="com.example.roomsample.Subcriber_viewmodel" />
+</data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/name_text"
+        android:layout_marginBottom="5dip"
+        android:hint="Name"
+        android:text="@={myViewModel.inputName}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/email_text"
+        android:text="@={myViewModel.inputEmail}"
+        android:layout_marginBottom="5dip"
+        android:hint="SubscriberEmail"
+        android:layout_marginTop="5dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/save_or_update_btn"
+        android:textSize="18dip"
+        android:textStyle="bold"
+        android:onClick="@{()->myViewModel.saveOrUpdate()}"
+        android:text="@={myViewModel.saveOrUpdateButtonText}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </Button>
+    <Button
+        android:textSize="18dip"
+        android:onClick="@{()->myViewModel.clearAllDelete()}"
+        android:textStyle="bold"
+        android:text="@={myViewModel.clearAllOrUpdateButtonText}"
+        android:id="@+id/clerar_or_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </Button>
+
+
+</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rv_suscriber"
+
+        android:layout_height="wrap_content" >
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>
+
+</layout>
